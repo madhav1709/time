@@ -1,0 +1,43 @@
+extends sup_header
+block content
+  .container
+    h1 All Timesheets of #{title}
+    script.
+      function myFunction()
+        {
+          var input, filter, table, tr, td, i;
+          input = document.getElementById("myInput");
+          filter = input.value.toUpperCase();
+          table = document.getElementById("myTable");
+          tr = table.getElementsByTagName("tr");
+
+          // Loop through all table rows, and hide those who don't match the search query
+          for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[0];
+          if (td) {
+          if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+          }
+           else
+            {
+            tr[i].style.display = "none";
+            }
+            }
+            }
+          }
+      
+
+    input#myInput(type='text', onkeyup='myFunction()', placeholder='Search for names..')
+    table(class='table table-striped',id = "myTable")
+      tr
+        td Name
+        td Project
+        td Hours
+        td Pay
+      each sheet, i in sheets
+        tr
+          td #{sheet.empname}
+          td #{sheet.ptitle}
+          td #{sheet.hours}
+          td $#{sheet.hours*15}
+    a.btn.btn-danger.pull-right(href='/sup_get_summary') Back

@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+    link(rel='stylesheet', href='/bootstrap/css/amelia.bootstrap.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    nav.navbar.navbar-default
+      div.container-fluid
+        div.navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#') Time and attendance management system.
+        div.collapse.navbar-collapse(id='bs-example-navbar-collapse-1')
+          ul.nav.navbar-nav.navbar-right
+            
+        
+            
+
+block content
+  .container
+    form.form-signin(role='form', action='/login', method='post')
+      h2.form-signin-heading Please sign in
+      label.sr-only(for='inputEmail')
+      input.form-control(type='text', name='username', id='username', placeholder='Enter your Usename', required, autofocus)
+      input.form-control(type='password', name='password', id='inputPassword', placeholder='Password' reuired='')
+      button.btn.btn-lg.btn-primary.btn-block(type='submit') LOGIN
+      a.btn.btn-link(href='http://localhost:3000/newkart/forgot') Forgot Password??
